@@ -1,0 +1,61 @@
+{
+	"info": {
+		"_postman_id": "d92d560b-d9f6-44e4-aa8c-0633791f8190",
+		"name": "Example Test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "https://jsonplaceholder.typicode.com/todos/1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7137795d-e3fe-46ea-b335-0fadefcf4a59",
+						"exec": [
+							"pm.test(\"Request to api should be status code 200\", function () {",
+							"  pm.response.to.be.ok",
+							"})",
+							"",
+							"pm.test(\"Response header should have Content-Type\", function() {",
+							"  pm.response.to.have.header(\"Content-Type\")",
+							"})",
+							"",
+							"pm.test(\"Response title should be 'delectus aut autem'\", function () {",
+							"  var jsonResult = pm.response.json()",
+							"  pm.expect(jsonResult.userId).to.equal(1)",
+							"  pm.expect(jsonResult.id).to.equal(1)",
+							"  pm.expect(jsonResult.title).to.equal(\"delectus aut autem\")",
+							"  pm.expect(jsonResult.completed).to.equal(false)",
+							"})",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://jsonplaceholder.typicode.com/todos/1",
+					"protocol": "https",
+					"host": [
+						"jsonplaceholder",
+						"typicode",
+						"com"
+					],
+					"path": [
+						"todos",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
